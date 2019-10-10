@@ -17,4 +17,10 @@ public class BibliotecaTest {
         Book book = new Book("nameA", "authorA", "2019");
         assertEquals("nameA, authorA, 2019", book.getDetail());
     }
+
+    @Test
+    public void showMenuItemName() {
+        MenuItem menuItem = new MenuItem("List of books");
+        assertEquals("List of books", menuItem.getName());
+    }
 }
