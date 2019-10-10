@@ -15,6 +15,6 @@ public class BibliotecaTest {
     @Test
     public void showBookDetail() {
         Book book = new Book("nameA", "authorA", "2019");
-        assertEquals("name: nameA, author: authorA, year: 2019", book.getDetail());
+        assertEquals("nameA, authorA, 2019", book.getDetail());
     }
 }
