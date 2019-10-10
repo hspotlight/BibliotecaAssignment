@@ -22,4 +22,8 @@ public class Book {
     public String getPublicationYear() {
         return publicationYear;
     }
+
+    public String getDetail() {
+        return "name: " + getName() + ", author: " + getAuthor() + ", year: " + getPublicationYear();
+    }
 }
