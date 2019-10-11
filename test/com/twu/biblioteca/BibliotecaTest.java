@@ -20,7 +20,10 @@ public class BibliotecaTest {
 
     @Test
     public void showMenuItemName() {
-        MenuItem menuItem = new MenuItem("List of books");
-        assertEquals("List of books", menuItem.getName());
+        Menu menu = new Menu();
+        MenuItem[] menuItems = new MenuItem[1];
+        menuItems[0] = new MenuItem("List of books");
+        menu.setMenu(menuItems);
+        assertEquals("List of books", menu.getMenu()[0].getName());
     }
 }
