@@ -6,22 +6,10 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         Scanner inputScanner = new Scanner(System.in);
+        String inputMenuName, selectedMenu;
         String welcomeMessage = getWelcomeMessage();
         System.out.println(welcomeMessage);
 
-        BibliotecaApp.showMenu();
-        String menu = inputScanner.nextLine();
-        if (menu.equals("List of books")) {
-            BibliotecaApp.showListOfBooks();
-        }
-    }
-
-    public static String getWelcomeMessage() {
-        String welcomeMessage = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
-        return welcomeMessage;
-    }
-
-    public static void showMenu() {
         MenuItem[] menuItems = new MenuItem[1];
         menuItems[0] = new MenuItem("List of books");
         Menu menu = new Menu();
@@ -32,6 +20,24 @@ public class BibliotecaApp {
         for(MenuItem menuItem: menu.getMenu()) {
             System.out.println(menuItem.getName());
         }
+
+        do {
+            inputMenuName = inputScanner.nextLine();
+            selectedMenu = menu.selectMenu(inputMenuName);
+            if (selectedMenu.equals("Please select a valid option")) {
+                System.out.println("Please select a valid option");
+            }
+        }
+        while(selectedMenu.equals("Please select a valid option"));
+
+        if (selectedMenu.equals("List of books")) {
+            BibliotecaApp.showListOfBooks();
+        }
+    }
+
+    public static String getWelcomeMessage() {
+        String welcomeMessage = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
+        return welcomeMessage;
     }
 
     public static void showListOfBooks() {

@@ -26,4 +26,24 @@ public class BibliotecaTest {
         menu.setMenu(menuItems);
         assertEquals("List of books", menu.getMenu()[0].getName());
     }
+
+    @Test
+    public void selectListOfBooksFromMenu() {
+        Menu menu = new Menu();
+        MenuItem[] menuItems = new MenuItem[1];
+        menuItems[0] = new MenuItem("List of books");
+        menu.setMenu(menuItems);
+        String selectedMenu = menu.selectMenu("List of books");
+        assertEquals("List of books", selectedMenu);
+    }
+
+    @Test
+    public void selectInvalidOptionFromMenu() {
+        Menu menu = new Menu();
+        MenuItem[] menuItems = new MenuItem[1];
+        menuItems[0] = new MenuItem("List of books");
+        menu.setMenu(menuItems);
+        String selectedMenu = menu.selectMenu("invalid option");
+        assertEquals("Please select a valid option", selectedMenu);
+    }
 }
