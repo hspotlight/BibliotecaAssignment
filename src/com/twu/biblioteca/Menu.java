@@ -19,4 +19,10 @@ public class Menu {
         }
         return "Please select a valid option";
     }
+
+    public void initialMenuItems() {
+        MenuItem[] menuItems = new MenuItem[1];
+        menuItems[0] = new MenuItem("List of books");
+        this.setMenu(menuItems);
+    }
 }

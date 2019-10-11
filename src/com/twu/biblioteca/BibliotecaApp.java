@@ -7,13 +7,12 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         Scanner inputScanner = new Scanner(System.in);
         String inputMenuName, selectedMenu;
+
         String welcomeMessage = getWelcomeMessage();
         System.out.println(welcomeMessage);
 
-        MenuItem[] menuItems = new MenuItem[1];
-        menuItems[0] = new MenuItem("List of books");
         Menu menu = new Menu();
-        menu.setMenu(menuItems);
+        menu.initialMenuItems();
 
         System.out.println();
         System.out.println("Menu:");
