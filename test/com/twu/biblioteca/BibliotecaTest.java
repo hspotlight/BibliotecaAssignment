@@ -55,7 +55,7 @@ public class BibliotecaTest {
     public void checkoutBookIsRemoveFromTheList() {
         BibliotecaApp application = new BibliotecaApp();
         application.checkoutBook("nameA");
-        boolean isBookExist = application.isBookExist("nameA");
+        boolean isBookExist = application.isAvailableBookExist("nameA");
         assertFalse(isBookExist);
     }
 

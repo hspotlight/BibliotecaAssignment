@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public class BibliotecaApp {
 
     Menu menu;
-    ArrayList<Book> books;
+    ArrayList<Book> availableBooks;
+    ArrayList<Book> allBooks;
 
     public BibliotecaApp() {
         this.setupMenu();
@@ -18,15 +19,19 @@ public class BibliotecaApp {
     }
 
     public void setupBooks() {
-        books = new ArrayList<Book>();
-        books.add(new Book("nameA", "authorA", "2019"));
-        books.add(new Book("nameB", "authorB", "2019"));
+        allBooks = new ArrayList<Book>();
+        allBooks.add(new Book("nameA", "authorA", "2019"));
+        allBooks.add(new Book("nameB", "authorB", "2019"));
+
+        availableBooks = new ArrayList<Book>();
+        availableBooks.add(new Book("nameA", "authorA", "2019"));
+        availableBooks.add(new Book("nameB", "authorB", "2019"));
     }
 
     public boolean checkoutBook(String bookName) {
-        for(Book book: books) {
+        for(Book book: availableBooks) {
             if (book.getName().equals(bookName)) {
-                books.remove(book);
+                availableBooks.remove(book);
                 return true;
             }
         }
@@ -43,7 +48,16 @@ public class BibliotecaApp {
     }
 
     public boolean isBookExist(String bookName) {
-        for(Book book: books) {
+        for(Book book: allBooks) {
+            if (book.getName().equals(bookName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isAvailableBookExist(String bookName) {
+        for(Book book: availableBooks) {
             if (book.getName().equals(bookName)) {
                 return true;
             }
@@ -67,7 +81,7 @@ public class BibliotecaApp {
     public void showListOfBooks() {
         System.out.println();
         System.out.println("a list of all library books:");
-        for(Book book: books) {
+        for(Book book: availableBooks) {
             System.out.println(book.getDetail());
         }
     }
