@@ -40,4 +40,12 @@ public class BibliotecaTest {
         String selectedMenu = menu.selectMenu("invalid option");
         assertEquals("Please select a valid option!", selectedMenu);
     }
+
+    @Test
+    public void selectQuitOptionFromMenu() {
+        Menu menu = new Menu();
+        menu.initialMenuItems();
+        String selectedMenu = menu.selectMenu("Quit");
+        assertEquals("Quit", selectedMenu);
+    }
 }

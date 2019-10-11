@@ -23,7 +23,10 @@ public class BibliotecaApp {
                 BibliotecaApp.showListOfBooks();
             }
             else if (selectedMenu.equals("Please select a valid option!")) {
-                System.out.println("Please select a valid option!");
+                System.err.println("Please select a valid option!");
+            }
+            else if (selectedMenu.equals("Quit")) {
+                break;
             }
         }
     }

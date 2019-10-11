@@ -21,8 +21,9 @@ public class Menu {
     }
 
     public void initialMenuItems() {
-        MenuItem[] menuItems = new MenuItem[1];
+        MenuItem[] menuItems = new MenuItem[2];
         menuItems[0] = new MenuItem("List of books");
+        menuItems[1] = new MenuItem("Quit");
         this.setMenu(menuItems);
     }
 }
