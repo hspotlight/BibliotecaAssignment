@@ -29,6 +29,13 @@ public class Main {
                 String checkoutMessage = application.getCheckoutMessage(isCheckoutSuccessful);
                 System.out.println(checkoutMessage);
             }
+            else if (selectedMenu.equals("Return")) {
+                System.out.println("Please enter the book name for return");
+                String inputBookname = inputScanner.nextLine();
+                boolean isReturnSuccessful = application.returnBook(inputBookname);
+                String returnMessage = application.getReturnMessage(isReturnSuccessful);
+                System.out.println(returnMessage);
+            }
             else if (selectedMenu.equals("Please select a valid option!")) {
                 System.err.println("Please select a valid option!");
             }

@@ -26,6 +26,7 @@ public class Menu {
         ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>();
         menuItems.add(new MenuItem("List of books"));
         menuItems.add(new MenuItem("Checkout"));
+        menuItems.add(new MenuItem("Return"));
         menuItems.add(new MenuItem("Quit"));
         this.setMenu(menuItems);
     }

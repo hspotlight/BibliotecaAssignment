@@ -72,4 +72,34 @@ public class BibliotecaTest {
         boolean isCheckoutSuccessful = application.checkoutBook("nameC");
         assertEquals("Sorry, that the book is not available", application.getCheckoutMessage(isCheckoutSuccessful));
     }
+
+    @Test
+    public void returnBookShouldBeInTheListOfBooks() {
+        BibliotecaApp application = new BibliotecaApp();
+        boolean isBookExist = application.isBookExist("nameA");
+        assertTrue(isBookExist);
+    }
+
+    @Test
+    public void returnBookShouldNotBeInTheAvailableLists() {
+        BibliotecaApp application = new BibliotecaApp();
+        application.checkoutBook("nameA");
+        boolean isBookExist = application.isAvailableBookExist("nameA");
+        assertFalse(isBookExist);
+    }
+
+    @Test
+    public void showUnsuccessfulReturnMessage() {
+        BibliotecaApp application = new BibliotecaApp();
+        boolean isReturnSuccessful = application.returnBook("nameA");
+        assertEquals("That is not a valid book to return", application.getReturnMessage(isReturnSuccessful));
+    }
+
+    @Test
+    public void showSuccessfulReturnMessage() {
+        BibliotecaApp application = new BibliotecaApp();
+        application.checkoutBook("nameA");
+        boolean isReturnSuccessful = application.returnBook("nameA");
+        assertEquals("Thank you for returning the book",  application.getReturnMessage(isReturnSuccessful));
+    }
 }

@@ -38,6 +38,23 @@ public class BibliotecaApp {
         return false;
     }
 
+    public boolean returnBook(String bookName) {
+        if (!this.isBookExist(bookName) || this.isAvailableBookExist(bookName)) {
+            return false;
+        }
+        Book book = getBookFromAllBooks(bookName);
+        this.availableBooks.add(book);
+        return true;
+    }
+
+    public String getReturnMessage(boolean isSuccessful) {
+        if (isSuccessful) {
+            return "Thank you for returning the book";
+        } else {
+            return "That is not a valid book to return";
+        }
+    }
+
     public String getCheckoutMessage(boolean isSuccessful) {
         if (isSuccessful) {
             return "Thank you! Enjoy the book";
@@ -45,6 +62,15 @@ public class BibliotecaApp {
         else {
             return "Sorry, that the book is not available";
         }
+    }
+
+    public Book getBookFromAllBooks(String bookName) {
+        for(Book book: allBooks) {
+            if (book.getName().equals(bookName)) {
+                return book.clone();
+            }
+        }
+        return null;
     }
 
     public boolean isBookExist(String bookName) {
