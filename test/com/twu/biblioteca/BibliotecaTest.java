@@ -9,7 +9,8 @@ public class BibliotecaTest {
     @Test
     public void welcomeMessageShouldShowWhenApplicationIsStarted() {
         String expectedWelcomeMessage = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
-        assertEquals(expectedWelcomeMessage, BibliotecaApp.getWelcomeMessage());
+        BibliotecaApp application = new BibliotecaApp();
+        assertEquals(expectedWelcomeMessage, application.getWelcomeMessage());
     }
 
     @Test
