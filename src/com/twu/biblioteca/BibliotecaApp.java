@@ -14,23 +14,25 @@ public class BibliotecaApp {
         Menu menu = new Menu();
         menu.initialMenuItems();
 
+        while(true) {
+            showMenu(menu);
+            inputMenuName = inputScanner.nextLine();
+
+            selectedMenu = menu.selectMenu(inputMenuName);
+            if (selectedMenu.equals("List of books")) {
+                BibliotecaApp.showListOfBooks();
+            }
+            else if (selectedMenu.equals("Please select a valid option!")) {
+                System.out.println("Please select a valid option!");
+            }
+        }
+    }
+
+    public static void showMenu(Menu menu) {
         System.out.println();
         System.out.println("Menu:");
         for(MenuItem menuItem: menu.getMenu()) {
             System.out.println(menuItem.getName());
-        }
-
-        do {
-            inputMenuName = inputScanner.nextLine();
-            selectedMenu = menu.selectMenu(inputMenuName);
-            if (selectedMenu.equals("Please select a valid option")) {
-                System.out.println("Please select a valid option");
-            }
-        }
-        while(selectedMenu.equals("Please select a valid option"));
-
-        if (selectedMenu.equals("List of books")) {
-            BibliotecaApp.showListOfBooks();
         }
     }
 

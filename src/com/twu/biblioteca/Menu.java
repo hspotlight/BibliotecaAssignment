@@ -17,7 +17,7 @@ public class Menu {
                 return menuName;
             }
         }
-        return "Please select a valid option";
+        return "Please select a valid option!";
     }
 
     public void initialMenuItems() {
