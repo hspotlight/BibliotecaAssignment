@@ -24,7 +24,7 @@ public class BibliotecaTest {
     public void showMenuItemName() {
         Menu menu = new Menu();
         menu.initialMenuItems();
-        assertEquals("List of books", menu.getMenu()[0].getName());
+        assertEquals("List of books", menu.getMenu().get(0).getName());
     }
 
     @Test

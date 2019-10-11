@@ -1,13 +1,15 @@
 package com.twu.biblioteca;
 
-public class Menu {
-    private MenuItem[] menuItems;
+import java.util.ArrayList;
 
-    public void setMenu(MenuItem[] menuItems) {
+public class Menu {
+    private ArrayList<MenuItem> menuItems;
+
+    public void setMenu(ArrayList<MenuItem> menuItems) {
         this.menuItems = menuItems;
     }
 
-    public MenuItem[] getMenu() {
+    public ArrayList<MenuItem> getMenu() {
         return this.menuItems;
     }
 
@@ -21,9 +23,10 @@ public class Menu {
     }
 
     public void initialMenuItems() {
-        MenuItem[] menuItems = new MenuItem[2];
-        menuItems[0] = new MenuItem("List of books");
-        menuItems[1] = new MenuItem("Quit");
+        ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>();
+        menuItems.add(new MenuItem("List of books"));
+        menuItems.add(new MenuItem("Checkout"));
+        menuItems.add(new MenuItem("Quit"));
         this.setMenu(menuItems);
     }
 }

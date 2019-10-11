@@ -21,7 +21,9 @@ public class Main {
             selectedMenu = menu.selectMenu(inputMenuName);
             if (selectedMenu.equals("List of books")) {
                 application.showListOfBooks();
-
+            }
+            else if (selectedMenu.equals("Checkout")) {
+                System.out.println("Please enter the book name for checkout");
                 String inputBookname = inputScanner.nextLine();
                 boolean isCheckoutSuccessful = application.checkoutBook(inputBookname);
                 String checkoutMessage = application.getCheckoutMessage(isCheckoutSuccessful);
