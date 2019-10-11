@@ -65,4 +65,11 @@ public class BibliotecaTest {
         boolean isCheckoutSuccessful = application.checkoutBook("nameA");
         assertEquals("Thank you! Enjoy the book", application.getCheckoutMessage(isCheckoutSuccessful));
     }
+
+    @Test
+    public void showUnsuccessfulCheckoutMessage() {
+        BibliotecaApp application = new BibliotecaApp();
+        boolean isCheckoutSuccessful = application.checkoutBook("nameC");
+        assertEquals("Sorry, that the book is not available", application.getCheckoutMessage(isCheckoutSuccessful));
+    }
 }

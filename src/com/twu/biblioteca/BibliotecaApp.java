@@ -34,7 +34,12 @@ public class BibliotecaApp {
     }
 
     public String getCheckoutMessage(boolean isSuccessful) {
-        return "Thank you! Enjoy the book";
+        if (isSuccessful) {
+            return "Thank you! Enjoy the book";
+        }
+        else {
+            return "Sorry, that the book is not available";
+        }
     }
 
     public boolean isBookExist(String bookName) {
