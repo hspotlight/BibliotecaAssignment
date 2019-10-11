@@ -33,6 +33,10 @@ public class BibliotecaApp {
         return false;
     }
 
+    public String getCheckoutMessage(boolean isSuccessful) {
+        return "Thank you! Enjoy the book";
+    }
+
     public boolean isBookExist(String bookName) {
         for(Book book: books) {
             if (book.getName().equals(bookName)) {

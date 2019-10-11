@@ -23,7 +23,9 @@ public class Main {
                 application.showListOfBooks();
 
                 String inputBookname = inputScanner.nextLine();
-                application.checkoutBook(inputBookname);
+                boolean isCheckoutSuccessful = application.checkoutBook(inputBookname);
+                String checkoutMessage = application.getCheckoutMessage(isCheckoutSuccessful);
+                System.out.println(checkoutMessage);
             }
             else if (selectedMenu.equals("Please select a valid option!")) {
                 System.err.println("Please select a valid option!");

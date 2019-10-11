@@ -58,4 +58,11 @@ public class BibliotecaTest {
         boolean isBookExist = application.isBookExist("nameA");
         assertFalse(isBookExist);
     }
+
+    @Test
+    public void showSuccessfulCheckoutMessage() {
+        BibliotecaApp application = new BibliotecaApp();
+        boolean isCheckoutSuccessful = application.checkoutBook("nameA");
+        assertEquals("Thank you! Enjoy the book", application.getCheckoutMessage(isCheckoutSuccessful));
+    }
 }
