@@ -21,6 +21,9 @@ public class Main {
             selectedMenu = menu.selectMenu(inputMenuName);
             if (selectedMenu.equals("List of books")) {
                 application.showListOfBooks();
+
+                String inputBookname = inputScanner.nextLine();
+                application.checkoutBook(inputBookname);
             }
             else if (selectedMenu.equals("Please select a valid option!")) {
                 System.err.println("Please select a valid option!");

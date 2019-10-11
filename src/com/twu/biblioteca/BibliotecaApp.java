@@ -1,9 +1,11 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
+
 public class BibliotecaApp {
 
     Menu menu;
-    Book[] books;
+    ArrayList<Book> books;
 
     public BibliotecaApp() {
         this.setupMenu();
@@ -16,9 +18,28 @@ public class BibliotecaApp {
     }
 
     public void setupBooks() {
-        books = new Book[2];
-        books[0] = new Book("nameA", "authorA", "2019");
-        books[1] = new Book("nameB", "authorB", "2019");
+        books = new ArrayList<Book>();
+        books.add(new Book("nameA", "authorA", "2019"));
+        books.add(new Book("nameB", "authorB", "2019"));
+    }
+
+    public boolean checkoutBook(String bookName) {
+        for(Book book: books) {
+            if (book.getName().equals(bookName)) {
+                books.remove(book);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isBookExist(String bookName) {
+        for(Book book: books) {
+            if (book.getName().equals(bookName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public String getWelcomeMessage() {

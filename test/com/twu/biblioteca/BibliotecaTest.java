@@ -2,7 +2,8 @@ package com.twu.biblioteca;
 
 
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.Assert.*;
 
 public class BibliotecaTest {
 
@@ -48,5 +49,13 @@ public class BibliotecaTest {
         menu.initialMenuItems();
         String selectedMenu = menu.selectMenu("Quit");
         assertEquals("Quit", selectedMenu);
+    }
+
+    @Test
+    public void checkoutBookIsRemoveFromTheList() {
+        BibliotecaApp application = new BibliotecaApp();
+        application.checkoutBook("nameA");
+        boolean isBookExist = application.isBookExist("nameA");
+        assertFalse(isBookExist);
     }
 }
