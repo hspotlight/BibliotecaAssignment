@@ -26,9 +26,4 @@ public class Book {
     public String getDetail() {
         return getName() + ", " + getAuthor() + ", " + getPublicationYear();
     }
-
-    public Book clone() {
-        Book cloneBook = new Book(this.getName(), this.getAuthor(), this.getPublicationYear());
-        return cloneBook;
-    }
 }

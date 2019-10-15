@@ -66,7 +66,7 @@ public class BibliotecaApp {
     public Book getBookFromAllBooks(String bookName) {
         for(Book book: allBooks) {
             if (book.getName().equals(bookName)) {
-                return book.clone();
+                return book;
             }
         }
         return null;
