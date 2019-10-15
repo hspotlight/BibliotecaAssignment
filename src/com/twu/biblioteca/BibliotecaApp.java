@@ -6,6 +6,7 @@ public class BibliotecaApp {
 
     Menu menu;
     ArrayList<Book> listOfBooks;
+    BookManager bookManager;
 
     public BibliotecaApp() {
         this.setupMenu();
@@ -17,68 +18,33 @@ public class BibliotecaApp {
     }
 
     private void setupBooks() {
-        listOfBooks = new ArrayList<Book>();
-        listOfBooks.add(new Book("nameA", "authorA", "2019"));
-        listOfBooks.add(new Book("nameB", "authorB", "2019"));
+        bookManager = new BookManager();
     }
 
     public boolean checkoutBook(String bookName) {
-        // if book is not available return false
-        for(Book book: listOfBooks) {
-            if (book.getName().equals(bookName)) {
-                book.checkoutBook();
-                return true;
-            }
-        }
-        return false;
+        return bookManager.checkoutBook(bookName);
     }
 
     public boolean returnBook(String bookName) {
-        if (!this.isBookExistInList(bookName) || this.isBookAvailable(bookName)) {
-            return false;
-        }
-
-        Book book = getBookFromList(bookName);
-        book.returnBook();
-        return true;
-    }
-
-    public Book getBookFromList(String bookName) {
-        for(Book book: listOfBooks) {
-            if (book.getName().equals(bookName)) {
-                return book;
-            }
-        }
-        return null;
+        return bookManager.returnBook(bookName);
     }
 
     public boolean isBookExistInList(String bookName) {
-        for(Book book: listOfBooks) {
-            if (book.getName().equals(bookName)) {
-                return true;
-            }
-        }
-        return false;
+        return bookManager.isBookExistInList(bookName);
     }
 
     public boolean isBookAvailable(String bookName) {
-        for(Book book: listOfBooks) {
-            if (book.getName().equals(bookName)) {
-                return book.isAvailable();
-            }
-        }
-        return false;
+        return bookManager.isBookAvailable(bookName);
     }
 
-    public String getWelcomeMessage() {
-        String welcomeMessage = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
-        return welcomeMessage;
+    public String selectMenu(String menuName) {
+        return this.menu.selectMenu(menuName);
     }
 
-    public void showMenu(Menu menu) {
+    public void showMenu() {
         System.out.println();
         System.out.println("Please enter the menu name to select the menu:");
-        for(String menuItem: menu.getMenu()) {
+        for(String menuItem: this.menu.getMenu()) {
             System.out.println(menuItem);
         }
     }
@@ -91,6 +57,11 @@ public class BibliotecaApp {
                 System.out.println(book.getDetail());
             }
         }
+    }
+
+    public String getWelcomeMessage() {
+        String welcomeMessage = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
+        return welcomeMessage;
     }
 
     public String getReturnMessage(boolean isSuccessful) {

@@ -11,13 +11,11 @@ public class Main {
         String welcomeMessage = application.getWelcomeMessage();
         System.out.println(welcomeMessage);
 
-        Menu menu = new Menu();
-
         while(true) {
-            application.showMenu(menu);
+            application.showMenu();
             inputMenuName = inputScanner.nextLine();
+            selectedMenu = application.selectMenu(inputMenuName);
 
-            selectedMenu = menu.selectMenu(inputMenuName);
             if (selectedMenu.equals("List of books")) {
                 application.showListOfBooks();
             }
