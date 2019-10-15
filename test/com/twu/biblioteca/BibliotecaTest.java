@@ -51,7 +51,7 @@ public class BibliotecaTest {
     public void checkoutBookIsRemoveFromTheList() {
         BibliotecaApp application = new BibliotecaApp();
         application.checkoutBook("nameA");
-        boolean isBookExist = application.isAvailableBookExist("nameA");
+        boolean isBookExist = application.isBookAvailable("nameA");
         assertFalse(isBookExist);
     }
 
@@ -72,7 +72,7 @@ public class BibliotecaTest {
     @Test
     public void returnBookShouldBeInTheListOfBooks() {
         BibliotecaApp application = new BibliotecaApp();
-        boolean isBookExist = application.isBookExist("nameA");
+        boolean isBookExist = application.isBookExistInList("nameA");
         assertTrue(isBookExist);
     }
 
@@ -80,7 +80,7 @@ public class BibliotecaTest {
     public void returnBookShouldNotBeInTheAvailableLists() {
         BibliotecaApp application = new BibliotecaApp();
         application.checkoutBook("nameA");
-        boolean isBookExist = application.isAvailableBookExist("nameA");
+        boolean isBookExist = application.isBookAvailable("nameA");
         assertFalse(isBookExist);
     }
 

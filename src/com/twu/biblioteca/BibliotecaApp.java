@@ -5,32 +5,28 @@ import java.util.ArrayList;
 public class BibliotecaApp {
 
     Menu menu;
-    ArrayList<Book> availableBooks;
-    ArrayList<Book> allBooks;
+    ArrayList<Book> listOfBooks;
 
     public BibliotecaApp() {
         this.setupMenu();
         this.setupBooks();
     }
 
-    public void setupMenu() {
+    private void setupMenu() {
         menu = new Menu();
     }
 
-    public void setupBooks() {
-        allBooks = new ArrayList<Book>();
-        allBooks.add(new Book("nameA", "authorA", "2019"));
-        allBooks.add(new Book("nameB", "authorB", "2019"));
-
-        availableBooks = new ArrayList<Book>();
-        availableBooks.add(new Book("nameA", "authorA", "2019"));
-        availableBooks.add(new Book("nameB", "authorB", "2019"));
+    private void setupBooks() {
+        listOfBooks = new ArrayList<Book>();
+        listOfBooks.add(new Book("nameA", "authorA", "2019"));
+        listOfBooks.add(new Book("nameB", "authorB", "2019"));
     }
 
     public boolean checkoutBook(String bookName) {
-        for(Book book: availableBooks) {
+        // if book is not available return false
+        for(Book book: listOfBooks) {
             if (book.getName().equals(bookName)) {
-                availableBooks.remove(book);
+                book.checkoutBook();
                 return true;
             }
         }
@@ -38,33 +34,17 @@ public class BibliotecaApp {
     }
 
     public boolean returnBook(String bookName) {
-        if (!this.isBookExist(bookName) || this.isAvailableBookExist(bookName)) {
+        if (!this.isBookExistInList(bookName) || this.isBookAvailable(bookName)) {
             return false;
         }
-        Book book = getBookFromAllBooks(bookName);
-        this.availableBooks.add(book);
+
+        Book book = getBookFromList(bookName);
+        book.returnBook();
         return true;
     }
 
-    public String getReturnMessage(boolean isSuccessful) {
-        if (isSuccessful) {
-            return "Thank you for returning the book";
-        } else {
-            return "That is not a valid book to return";
-        }
-    }
-
-    public String getCheckoutMessage(boolean isSuccessful) {
-        if (isSuccessful) {
-            return "Thank you! Enjoy the book";
-        }
-        else {
-            return "Sorry, that the book is not available";
-        }
-    }
-
-    public Book getBookFromAllBooks(String bookName) {
-        for(Book book: allBooks) {
+    public Book getBookFromList(String bookName) {
+        for(Book book: listOfBooks) {
             if (book.getName().equals(bookName)) {
                 return book;
             }
@@ -72,8 +52,8 @@ public class BibliotecaApp {
         return null;
     }
 
-    public boolean isBookExist(String bookName) {
-        for(Book book: allBooks) {
+    public boolean isBookExistInList(String bookName) {
+        for(Book book: listOfBooks) {
             if (book.getName().equals(bookName)) {
                 return true;
             }
@@ -81,10 +61,10 @@ public class BibliotecaApp {
         return false;
     }
 
-    public boolean isAvailableBookExist(String bookName) {
-        for(Book book: availableBooks) {
+    public boolean isBookAvailable(String bookName) {
+        for(Book book: listOfBooks) {
             if (book.getName().equals(bookName)) {
-                return true;
+                return book.isAvailable();
             }
         }
         return false;
@@ -106,9 +86,25 @@ public class BibliotecaApp {
     public void showListOfBooks() {
         System.out.println();
         System.out.println("a list of all library books:");
-        for(Book book: availableBooks) {
-            System.out.println(book.getDetail());
+        for(Book book: listOfBooks) {
+            if (book.isAvailable()) {
+                System.out.println(book.getDetail());
+            }
         }
+    }
+
+    public String getReturnMessage(boolean isSuccessful) {
+        if (isSuccessful) {
+            return "Thank you for returning the book";
+        }
+        return "That is not a valid book to return";
+    }
+
+    public String getCheckoutMessage(boolean isSuccessful) {
+        if (isSuccessful) {
+            return "Thank you! Enjoy the book";
+        }
+        return "Sorry, that the book is not available";
     }
 
 }
