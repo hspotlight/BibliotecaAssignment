@@ -38,6 +38,7 @@ public class BookManagerTest {
     @Test
     public void returnedBookShouldBeInListAndNotBeAvailable() {
         String bookName = "nameA";
+        bookManager.checkoutBook(bookName);
         boolean isValidToReturn = bookManager.isBookExistInList(bookName) && !bookManager.isBookAvailable(bookName);
         assertTrue(isValidToReturn);
     }
