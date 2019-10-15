@@ -23,14 +23,12 @@ public class BibliotecaTest {
     @Test
     public void showMenuItemName() {
         Menu menu = new Menu();
-        menu.initialMenuItems();
-        assertEquals("List of books", menu.getMenu().get(0).getName());
+        assertEquals("List of books", menu.getMenu().get(0));
     }
 
     @Test
     public void selectListOfBooksFromMenu() {
         Menu menu = new Menu();
-        menu.initialMenuItems();
         String selectedMenu = menu.selectMenu("List of books");
         assertEquals("List of books", selectedMenu);
     }
@@ -38,7 +36,6 @@ public class BibliotecaTest {
     @Test
     public void selectInvalidOptionFromMenu() {
         Menu menu = new Menu();
-        menu.initialMenuItems();
         String selectedMenu = menu.selectMenu("invalid option");
         assertEquals("Please select a valid option!", selectedMenu);
     }
@@ -46,7 +43,6 @@ public class BibliotecaTest {
     @Test
     public void selectQuitOptionFromMenu() {
         Menu menu = new Menu();
-        menu.initialMenuItems();
         String selectedMenu = menu.selectMenu("Quit");
         assertEquals("Quit", selectedMenu);
     }

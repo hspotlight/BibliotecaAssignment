@@ -12,7 +12,6 @@ public class Main {
         System.out.println(welcomeMessage);
 
         Menu menu = new Menu();
-        menu.initialMenuItems();
 
         while(true) {
             application.showMenu(menu);

@@ -15,7 +15,6 @@ public class BibliotecaApp {
 
     public void setupMenu() {
         menu = new Menu();
-        menu.initialMenuItems();
     }
 
     public void setupBooks() {
@@ -99,8 +98,8 @@ public class BibliotecaApp {
     public void showMenu(Menu menu) {
         System.out.println();
         System.out.println("Please enter the menu name to select the menu:");
-        for(MenuItem menuItem: menu.getMenu()) {
-            System.out.println(menuItem.getName());
+        for(String menuItem: menu.getMenu()) {
+            System.out.println(menuItem);
         }
     }
 
