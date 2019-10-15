@@ -13,6 +13,10 @@ public class Movie {
         this.movieRating = movieRating;
     }
 
+    public String getDetail() {
+        return this.name + ", " + this.year + ", " + this.director + ", " + this.movieRating;
+    }
+
     public String getDirector() {
         return director;
     }

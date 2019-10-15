@@ -5,20 +5,13 @@ import java.util.ArrayList;
 public class BibliotecaApp {
 
     Menu menu;
-    ArrayList<Book> listOfBooks;
     BookManager bookManager;
+    MovieManager movieManager;
 
     public BibliotecaApp() {
-        this.setupMenu();
-        this.setupBooks();
-    }
-
-    private void setupMenu() {
         menu = new Menu();
-    }
-
-    private void setupBooks() {
         bookManager = new BookManager();
+        movieManager = new MovieManager();
     }
 
     public boolean checkoutBook(String bookName) {
@@ -52,10 +45,18 @@ public class BibliotecaApp {
     public void showListOfBooks() {
         System.out.println();
         System.out.println("a list of all library books:");
-        for(Book book: listOfBooks) {
+        for(Book book: this.bookManager.getListOfBooks()) {
             if (book.isAvailable()) {
                 System.out.println(book.getDetail());
             }
+        }
+    }
+
+    public void showListOfMovies() {
+        System.out.println();
+        System.out.println("a list of all available movies:");
+        for(Movie movie: movieManager.getListOfMovies()) {
+            System.out.println(movie.getDetail());
         }
     }
 

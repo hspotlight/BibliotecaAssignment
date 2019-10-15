@@ -19,6 +19,9 @@ public class Main {
             if (selectedMenu.equals("List of books")) {
                 application.showListOfBooks();
             }
+            else if (selectedMenu.equals("List of movies")) {
+                application.showListOfMovies();
+            }
             else if (selectedMenu.equals("Checkout")) {
                 System.out.println("Please enter the book name for checkout");
                 String inputBookname = inputScanner.nextLine();

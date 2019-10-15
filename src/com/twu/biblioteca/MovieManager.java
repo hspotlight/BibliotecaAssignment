@@ -3,16 +3,20 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 
 public class MovieManager {
-    ArrayList<Movie> movies;
+    private ArrayList<Movie> listOfMovies;
 
     public MovieManager() {
         this.setupMovies();
     }
 
     private void setupMovies() {
-        this.movies = new ArrayList<Movie>();
-        this.movies.add(new Movie("movie1", "2019", "Hong", 10));
-        this.movies.add(new Movie("movie2", "2019", "Hong", 8));
-        this.movies.add(new Movie("movie3", "2019", "Hong", 9));
+        this.listOfMovies = new ArrayList<Movie>();
+        this.listOfMovies.add(new Movie("movie1", "2019", "director1", 10));
+        this.listOfMovies.add(new Movie("movie2", "2019", "director2", 8));
+        this.listOfMovies.add(new Movie("movie3", "2019", "director3", 9));
+    }
+
+    public ArrayList<Movie> getListOfMovies() {
+        return listOfMovies;
     }
 }

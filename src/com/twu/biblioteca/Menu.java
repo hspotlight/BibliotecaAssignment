@@ -25,6 +25,7 @@ public class Menu {
     private void initialMenuItems() {
         ArrayList<String> menuItems = new ArrayList<String>();
         menuItems.add("List of books");
+        menuItems.add("List of movies");
         menuItems.add("Checkout");
         menuItems.add("Return");
         menuItems.add("Quit");

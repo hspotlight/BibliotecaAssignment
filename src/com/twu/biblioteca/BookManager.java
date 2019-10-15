@@ -11,8 +11,8 @@ public class BookManager {
 
     private void setupBooks() {
         listOfBooks = new ArrayList<Book>();
-        listOfBooks.add(new Book("nameA", "authorA", "2019"));
-        listOfBooks.add(new Book("nameB", "authorB", "2019"));
+        listOfBooks.add(new Book("book1", "authorA", "2019"));
+        listOfBooks.add(new Book("book2", "authorB", "2019"));
     }
 
     public boolean checkoutBook(String bookName) {
@@ -59,5 +59,9 @@ public class BookManager {
             }
         }
         return null;
+    }
+
+    public ArrayList<Book> getListOfBooks() {
+        return listOfBooks;
     }
 }
