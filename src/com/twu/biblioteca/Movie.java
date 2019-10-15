@@ -16,20 +16,4 @@ public class Movie {
     public String getDetail() {
         return this.name + ", " + this.year + ", " + this.director + ", " + this.movieRating;
     }
-
-    public String getDirector() {
-        return director;
-    }
-
-    public int getMovieRating() {
-        return movieRating;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getYear() {
-        return year;
-    }
 }

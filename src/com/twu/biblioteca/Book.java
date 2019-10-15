@@ -17,14 +17,6 @@ public class Book {
         return name;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public String getPublicationYear() {
-        return publicationYear;
-    }
-
     public void checkoutBook() {
         this.isAvailable = false;
     }
@@ -38,6 +30,6 @@ public class Book {
     }
 
     public String getDetail() {
-        return getName() + ", " + getAuthor() + ", " + getPublicationYear();
+        return this.name + ", " + this.author + ", " + this.publicationYear;
     }
 }
